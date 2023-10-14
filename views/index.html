@@ -11,14 +11,28 @@
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
 
-    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/styles.css" />
     <link rel="shortcut icon" href="./image/favicon.ico" />
-    
-    <script src="./script/app.js" type="module"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+        }
+      }
+    </script>
+    <script src="./script/app.js" type="module" defer></script>
   </head>
   <body>
-    <h1>
-      carma
-    </h1>
+    <noscript>JavaScript is required to run carma</noscript>
+    <div id="container">
+      <div id="loading" class="page">
+        <img src="./image/carma-logo.png" alt="carma website logo" id="loading-logo">
+        <p id="loading-text">Loading...</p>
+      </div>
+      <div id="home" class="page">
+
+      </div>
+    </div>
   </body>
 </html>
