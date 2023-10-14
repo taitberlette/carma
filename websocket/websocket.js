@@ -1,4 +1,4 @@
-//websocket.js
+//websocket.js (server)
 
 // import socket.io to manage websocket
 import { Server } from "socket.io"
@@ -22,7 +22,13 @@ const setupSocket = async (server) => {
 
 // when a new user connects to the server
 const handleConnection = async (socket) => {
-  console.log('a new user connected to the server')
+  console.log(`user ${socket.id} connected to the server`)
+
+  socket.join("waiting")
+
+  socket.on("disconnect", () => {
+    console.log(`user ${socket.id} disconnected`)
+  })
 }
 
 // export the websocket

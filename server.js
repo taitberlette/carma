@@ -43,7 +43,7 @@ app.use('/', router)
 const listen = async () => {
   return new Promise((res, rej) => {
     // start the app on the specified port and check for errors
-    app.listen(PORT, (error) => {
+    server.listen(PORT, (error) => {
       if (error) {
         rej('failed to start the server 😭')
         return;
