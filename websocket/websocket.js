@@ -7,7 +7,7 @@ import { Server } from "socket.io"
 let io = null;
 
 // setup the websocket server
-const setupSocket = async (server) => {
+const setupSocket = (server) => {
   return new Promise(async (res, rej) => {
     // create the websocket server
     io = new Server(server)
