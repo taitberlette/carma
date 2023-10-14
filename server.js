@@ -14,6 +14,7 @@ import http from "http"
 
 // import the custom router
 import { router } from "./routes/route.js"
+import { userRouter } from "./routes/user.js"
 
 // import the websocket server
 import { setupSocket } from "./websocket/websocket.js"
@@ -38,6 +39,7 @@ app.use(express.static(path.resolve('public')));
 
 // use the router middleware to accept requests at the root
 app.use('/', router)
+app.use('/api/user/', userRouter)
 
 // listen for web requests
 const listen = async () => {
