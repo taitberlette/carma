@@ -1,0 +1,25 @@
+{
+  "name": "carma-carpool",
+  "version": "0.0.1",
+  "description": "carma; an eco-friendly carpooling app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-static": "^1.2.6",
+    "mongodb": "^6.1.0",
+    "node-fetch": "^3.3.2",
+    "socket.io": "^4.7.2"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "repository": {
+    "url": "https://github.com/taitberlette/carma"
+  }
+}
