@@ -340,5 +340,97 @@ tripRouter.post('/route', async (request, response) => {
 
 })
 
+
+tripRouter.post('/end', async (request, response) => {
+  const { id, tripId } = request.body
+
+  let user = null
+  
+  try {
+    user = await findUser({ id })
+  } catch (e) {
+    response.status(404).json({msg: `failed to find account`})
+    return;
+  }
+
+  if(!user) {
+    response.status(404).json({msg: `failed to find account`})
+    return;
+  }
+
+  let trip = null
+  
+  try {
+    trip = await findTrip({ id: tripId })
+  } catch (e) {
+    response.status(404).json({msg: `failed to find trip`})
+    return;
+  }
+
+  if(!trip) {
+    response.status(404).json({msg: `failed to find trip`})
+    return;
+  }
+
+  if(trip.driver != id) {
+    response.status(401).json({msg: `you don't have auth to end the trip`})
+    return;
+  }
+  
+  let calculated = await calculateRoute(trip)
+
+  console.log('ending trip')
+
+  user.statistics.trips++
+  user.statistics.distance += calculated.routes[0].distance
+  user.statistics.footprint += user.statistics.distance
+
+  for(let i = 0; i < user.trips.driving.length; i++) {
+    if(user.trips.driving[i].id == tripId) {
+      user.trips.history.push(...user.trips.driving.splice(i, 1))
+    }
+  }
+  
+  try {
+    await updateUser(user, user)
+  } catch (e) {
+    console.error(e)
+  }
+
+  for(let i = 0; i < trip.riders.length; i++) {
+    let rider = null
+  
+    try {
+      rider = await findUser({ id: trip.riders[i].id })
+    } catch (e) {
+      continue;
+    }
+  
+    if(!rider) {
+      continue;
+    }
+    
+    rider.statistics.trips++
+    rider.statistics.distance += calculated.routes[0].distance
+    rider.statistics.footprint += rider.statistics.distance
+    
+    for(let i = 0; i < rider.trips.joined.length; i++) {
+      if(rider.trips.joined[i].id == tripId) {
+        rider.trips.history.push(...rider.trips.joined.splice(i, 1))
+      }
+    }
+    
+    try {
+      await updateUser(rider, rider)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  deleteTrip(trip)
+
+  response.status(200).send({msg: `success 🥳`})
+})
+
 // export the router
 export { tripRouter }

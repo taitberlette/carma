@@ -1,6 +1,6 @@
 // account.js
 
-import { getUser, signout } from "../../state/state.js"
+import { getUser, signout, getState } from "../../state/state.js"
 import { renderMap } from "./map.js"
 import { switchScreen } from "../screen.js"
 
@@ -98,10 +98,12 @@ const refresh = async () => {
   }
 
   joinedTrips.replaceChildren(...joinedChildren)
-
 }
 
 const startDrive = async (id) => {
+  const state = getState()
+
+  state.id = id
 
   switchScreen('loading')
 
@@ -123,7 +125,6 @@ const startDrive = async (id) => {
 
   switchScreen('map')
   renderMap(json.route)
-  
 }
 
 const leave = async (id, name) => {
