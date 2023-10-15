@@ -1,7 +1,7 @@
 //app.js
 
 // state manager
-import { setupState } from "./state/state.js"
+import { setupState, getUser } from "./state/state.js"
 
 // ui screen manager
 import { setupScreen, switchScreen } from "./screen/screen.js"
@@ -33,7 +33,7 @@ const start = async () => {
     // connect to the websocket server
     await setupSocket()
 
-    switchScreen("home")
+    switchScreen(getUser() ? "dashboard" : "home")
 
     console.log('application setup! 😁')
   } catch (e) {

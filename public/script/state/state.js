@@ -19,6 +19,10 @@ const setupState = () => {
   })
 }
 
+const getUser = () => {
+  return user
+}
+
 const loginAccount = (username, password) => {
   return new Promise(async (res, rej) => {
     const response = await fetch('/api/user/login', {
@@ -70,4 +74,4 @@ const createAccount = (username, password) => {
 }
 
 
-export { setupState, loginAccount, createAccount }
+export { setupState, loginAccount, createAccount, getUser }

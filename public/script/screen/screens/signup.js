@@ -21,12 +21,12 @@ const setupSignup = () => {
     loginButton = document.getElementById("signup-login")
     loginButton.addEventListener('click', login)
     
-    createButton = document.getElementById("create-account")
+    createButton = document.getElementById("create-button")
     createButton.addEventListener('click', create)
 
-    emailInput = document.getElementById("signup-email")
-    passwordInput = document.getElementById("signup-password")
-    confirmPasswordInput = document.getElementById("signup-password-confirm")
+    emailInput = document.getElementById("email-bar")
+    passwordInput = document.getElementById("password-bar2")
+    confirmPasswordInput = document.getElementById("password-confirm")
 
     res()
   })
@@ -41,12 +41,12 @@ const login = () => {
 }
 
 const create = async () => {
-  let username = emailInput.value.trim().toLowerCase()
-  let password = passwordInput.value.trim().toLowerCase()
-  let confirm = confirmPasswordInput.value.trim().toLowerCase()
+  let username = emailInput.value.trim()
+  let password = passwordInput.value.trim()
+  let confirm = confirmPasswordInput.value.trim()
 
   if(!username || !password) {
-    alert('No password')
+    alert('No username or password')
     return
   }
 
@@ -62,9 +62,7 @@ const create = async () => {
     return
   }
 
-  alert('account created')
-
-  // switchScreen()
+  switchScreen("dashboard")
 }
 
 export { setupSignup }

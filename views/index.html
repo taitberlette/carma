@@ -46,18 +46,18 @@
           <img src="./image/login-page.png" alt="lgpage" id="login-bk" class="center">
           <form>
             <input type="text" id="username-bar" name="username">
-            <input type="text" id="password-bar" name="password">
+            <input type="text" id="password-bar1" name="password">
             <button class = "button" type="button" id="backhome-login" style="padding:5px">
               <img src="./image/homeicon.png" alt="homeicon" id="homeicon" style="padding-right: 10px; width: 13%; height: 13%">back home</button > 
           </form> 
-          <button class = "button" type="button" id="create-button">Login</button>       
+          <button class = "button" type="button" id="login-account">Login</button>       
         </div>
       <!--NEW CODE-->
 
       <!--other new code (signup page)-->
       <div id="signup-page" class="page">
         <!-- background -->
-        <!-- <img src="./image/signup-page.png" id="signup-bk" class="center">       -->
+        <img src="./image/signup-page.png" id="signup-bk" class="center">      
 
         <form>
           <input type="text" id="email-bar" name="email">
@@ -65,13 +65,16 @@
           <input type="text" id="password-confirm" name="password-confirm">
         </form>       
 
-        <button class = "button" type="button" id="backhome" style="padding:5px">
+        <button class = "button" type="button" id="backhome-signup" style="padding:5px">
           <img src="./image/homeicon.png" alt="homeicon" id="homeicon" style="padding-right: 10px; width: 13%; height: 13%">back home</button> 
       
         <button class = "button" type="button" id="create-button">Create</button>
-        <p style="font-family:'Crushed'; text-align:center;"> Have an account? <span> <a href="url to login page here" style="color:black">Log in</a></span></p>
+        <p style="font-family:'Crushed'; text-align:center;"> Have an account? <span> <a id="signup-login" style="color:black">Log in</a></span></p>
       </div>
       <!--end signup page-->
+      <div id="dashboard" class="page">
+        <h1>Dashboard</h1>
+      </div>
     </div>
   </body>
 </html>

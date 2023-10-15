@@ -17,14 +17,14 @@ const setupLogin = () => {
     backButton = document.getElementById("backhome-login")
     backButton.addEventListener('click', home)
 
-    // signupButton = document.getElementById("login-")
+    // signupButton = document.getElementById("")
     // signupButton.addEventListener('click', login)
     
-    // loginButton = document.getElementById("login-account")
-    // loginButton.addEventListener('click', login)
+    loginButton = document.getElementById("login-account")
+    loginButton.addEventListener('click', login)
 
     emailInput = document.getElementById("username-bar")
-    passwordInput = document.getElementById("password-bar")
+    passwordInput = document.getElementById("password-bar1")
 
     res()
   })
@@ -39,11 +39,11 @@ const signup = () => {
 }
 
 const login = async () => {
-  let username = emailInput.value.trim().toLowerCase()
-  let password = passwordInput.value.trim().toLowerCase()
+  let username = emailInput.value.trim()
+  let password = passwordInput.value.trim()
 
   if(!username || !password) {
-    alert('No password')
+    alert('No username or password')
     return
   }
 
@@ -54,9 +54,7 @@ const login = async () => {
     return
   }
 
-  alert('account created')
-
-  // switchScreen()
+  switchScreen("dashboard")
 }
 
 export { setupLogin }
