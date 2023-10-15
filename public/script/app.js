@@ -38,7 +38,7 @@ const start = async () => {
     await setupSocket()
 
     switchScreen("map")
-    // switchScreen(getUser() ? "dashboard" : "home")
+    // switchScreen(getUser() ? "account-page" : "home")
 
     console.log('application setup! 😁')
   } catch (e) {

@@ -54,7 +54,7 @@ const login = async () => {
     return
   }
 
-  switchScreen("dashboard")
+  switchScreen("account-page")
 }
 
 export { setupLogin }
