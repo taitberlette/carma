@@ -52,7 +52,7 @@ const listen = async () => {
     // start the app on the specified port and check for errors
     server.listen(PORT, (error) => {
       if (error) {
-        rej('failed to start the server 😭')
+        rej(new Error('failed to start the server 😭'))
         return;
       }
       

@@ -9,7 +9,7 @@ import path from "path"
 // create a new express route
 const router = express.Router()
 
-// when the router recieves a request at the root, send the homepage file
+// when the router receives a request at the root, send the homepage file
 router.get('/', (request, response) => {
   response.sendFile(path.resolve("./views/index.html"))
 })
