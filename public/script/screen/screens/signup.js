@@ -3,7 +3,6 @@
 import { createAccount, loginAccount } from "../../state/state.js"
 import { switchScreen } from "../screen.js"
 
-let element = null
 let backButton = null
 let loginButton = null
 let createButton = null
@@ -13,7 +12,6 @@ let confirmPasswordInput = null
 
 const setupSignup = () => {
   return new Promise(async (res, rej) => {
-    element = document.getElementById("signup-page")
 
     backButton = document.getElementById("backhome-signup")
     backButton.addEventListener('click', home)
@@ -62,7 +60,7 @@ const create = async () => {
     return
   }
 
-  switchScreen("account-page")
+  switchScreen("map")
 }
 
 export { setupSignup }
