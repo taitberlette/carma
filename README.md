@@ -1,5 +1,5 @@
                                         🐢🦖🌱☘️🍐🍏🥝🥬📗❇️
-# 🍀carma 
+# 🍀Carma 
 
 💚Welcome to Carma, where innovation and sustainability converge to redefine how we move and budget. At Carma, we believe in driving change, quite literally, by revolutionizing transportation and financial habits for a greener, more sustainable future. 
 
