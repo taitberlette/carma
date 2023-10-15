@@ -47,8 +47,11 @@ const start = async () => {
     await setupSocket()
 
     switchScreen(getUser() ? "account-page" : "home")
+
+    if(getUser()) {
+      refresh()
+    }
     
-    refresh()
 
     // switchScreen("driverinfo-page")
 
