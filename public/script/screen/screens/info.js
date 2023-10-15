@@ -37,7 +37,7 @@ const back = () => {
   switchScreen('passenger-page')
 }
 
-const home = () => {nc
+const home = () => {
   switchScreen('account-page')
 }
 
