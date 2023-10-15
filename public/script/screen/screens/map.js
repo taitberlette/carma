@@ -1,6 +1,5 @@
 // login.js
 
-import { createAccount, loginAccount } from "../../state/state.js"
 import { switchScreen } from "../screen.js"
 
 let mapboxgl = window.mapboxgl
@@ -8,7 +7,6 @@ let mapboxgl = window.mapboxgl
 let map = null
 let loaded = false
 
-let element = null
 let backButton = null
 let homeButton = null
 let mapSteps = null
@@ -65,8 +63,6 @@ const setupMap = () => {
       });
     })
 
-    element = document.getElementById("map")
-
     backButton = document.getElementById("map-back")
     backButton.addEventListener('click', back)
 
@@ -80,15 +76,17 @@ const setupMap = () => {
 }
 
 const back = () => {
-  switchScreen('signup-page')
+  switchScreen('account-page')
 }
 
 const home = () => {
-  switchScreen('home')
+  switchScreen('account-page')
 }
 
 const renderMap = async (data) => {
   console.log(data)
+  
+  map.resize()
 
   const geojson = {
     "type": "FeatureCollection",
@@ -123,7 +121,7 @@ const renderMap = async (data) => {
   const children = []
 
   const header = document.createElement("h2")
-  header.textContent = `${Math.round(data.distance / 1000) }km`
+  header.textContent = `${Math.round(data.distance / 1000)}km`
 
   children.push(header)
 

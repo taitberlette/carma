@@ -2,8 +2,8 @@
 
 import { createAccount, loginAccount } from "../../state/state.js"
 import { switchScreen } from "../screen.js"
+import { refresh } from "./account.js"
 
-let element = null
 let backButton = null
 let loginButton = null
 let createButton = null
@@ -13,7 +13,6 @@ let confirmPasswordInput = null
 
 const setupSignup = () => {
   return new Promise(async (res, rej) => {
-    element = document.getElementById("signup-page")
 
     backButton = document.getElementById("backhome-signup")
     backButton.addEventListener('click', home)
@@ -63,6 +62,7 @@ const create = async () => {
   }
 
   switchScreen("account-page")
+  refresh()
 }
 
 export { setupSignup }

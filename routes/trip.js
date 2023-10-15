@@ -33,11 +33,6 @@ tripRouter.post('/create', async (request, response) => {
     return;
   }
 
-  if(!user.vehicle.active) {
-    response.status(401).json({msg: `must have an active vehicle to create a trip`})
-    return;
-  }
-
   console.log(journey)
 
   let start = null
@@ -57,11 +52,15 @@ tripRouter.post('/create', async (request, response) => {
     end, 
     startPlaces: [],
     endPlaces: [],
-    vehicle: user.vehicle, 
-    seats: journey.seats, 
-    time: journey.time,
+    vehicle: {
+      make: journey.make,
+      model: journey.model,
+      plate: journey.plate,
+      seats: journey.seats, 
+    }, 
     riders: [],
-    driver: id
+    driver: id,
+    summary: `${start.text} -> ${end.text}`
   }
 
   for(let i = 0; i < start.context.length; i++) {
@@ -82,7 +81,8 @@ tripRouter.post('/create', async (request, response) => {
   user.trips.driving.push({
     id: trip.id,
     footprint: 0,
-    distance: 0
+    distance: 0,
+    text: trip.summary
   })
 
   try {
@@ -168,6 +168,7 @@ tripRouter.post('/join', async (request, response) => {
     id: tripId,
     footprint: 0,
     distance: 0,
+    text: trip.summary
   })
   
   try {
@@ -294,6 +295,7 @@ tripRouter.post('/find', async (request, response) => {
 
   response.status(200).send({msg: `success 🥳`, trips: journeys})
 })
+  
 
 tripRouter.post('/route', async (request, response) => {
   const { tripId } = request.body

@@ -181,13 +181,13 @@ body {
   font-size: 48px;
 }
 
-#map-title {
+.header-title {
   font-family: Crushed;
   font-size: 64px;
   text-align: center;
 }
 
-#map-back {
+#map-back, #destination-back, #passenger-back, #rides-back, #account-logout {
 
   position:absolute;
   margin: auto;
@@ -196,7 +196,7 @@ body {
   color: black;
 }
 
-#map-home {
+#map-home, #destination-home, #passenger-home, #rides-home, #account-refresh {
   position:absolute;
   margin: auto;
   right: 20px;
@@ -204,8 +204,135 @@ body {
   color: black;
 }
 
-#map-steps {
+#passenger-header { 
+  position: absolute;
+  margin: 0;
+  top: 0;
+  background-color: #D4EFBE;
+  margin: 0;
+  height: 20%;
+  width: 100%;
+  z-index: 1
 }
+
+#passenger-bk {
+  position: absolute;
+  margin: 0;
+  top: 0;
+}
+
+
+#destination-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 20%) 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+  width: 100%;
+}
+  
+#destination-header { 
+  grid-area: 1 / 1 / 2 / 4;
+  background-color: #D4EFBE;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#destination-start { 
+  grid-area: 2 / 1 / 3 / 4;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#destination-end { 
+  grid-area: 3 / 1 / 4 / 2; 
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#destination-next { 
+  grid-area: 4 / 1 / 5 / 2; 
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#destination-container input {
+  font-size: 48px;
+  font-family: Crushed;
+  text-align: center;
+}
+
+#account-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 20% 50% 20% 100%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+  width: 100%;
+}
+  
+#account-header { grid-area: 1 / 1 / 2 / 4;
+  background-color: #D4EFBE;
+  margin: 0;
+  height: 100%;
+  width: 100%; }
+
+  #driver { grid-area: 2 / 1 / 3 / 2; }
+  #rider { grid-area: 2 / 2 / 3 / 3; }
+  #new-trip { grid-area: 3 / 1 / 4 / 3; }
+  #stats { grid-area: 4 / 1 / 5 / 3; }
+
+.type-button {
+  width: 30%;
+  height: 30%;
+  background-color: #A8FFA0D8;
+  color: black;
+  z-index: 2
+}
+
+#driver-button {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+}
+
+#passenger-button {
+  position: absolute;
+  top: 30%;
+  right: 15%;
+}
+
+#rides-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+  width: 100%;
+  }
+  
+  #rides-header { grid-area: 1 / 1 / 2 / 4;
+    background-color: #D4EFBE;
+    margin: 0;
+    height: 100%;
+    width: 100%; }
+  #rides-options { grid-area: 2 / 1 / 3 / 2; }
+
+.list-button {
+  width: 100%;
+}
+
+#driver, #rider {
+  overflow-y: scroll;
+}
+
 table, td, th {
   text-align: center;
   font-family:'Crushed'
