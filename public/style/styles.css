@@ -62,13 +62,52 @@ html, body, #container, .page {
   font-size:30pt;
 }
 
-#password-bar{
+#password-bar1{
   position: absolute;
   top: 62%;
   right: 20.5%;  
 
   height:8%;
   width: 58%;
+  font-size:30pt;
+}
+
+#email-bar{
+  position: absolute;
+  top: 35%;
+  right: 20.5%;  
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+#password-bar2{
+  position: absolute;
+  top: 55%;
+  right: 20.5%;  
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+#password-confirm{
+  position: absolute;
+  top: 73%;
+  right: 20.5%;  
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+#create-button{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 200px;
+  background-color: #77987C;
   font-size:30pt;
 }
 
@@ -80,8 +119,6 @@ html, body, #container, .page {
   width:100%
 }
 
-
-
 body {
 	background-image: url('https://media.discordapp.net/attachments/1161825372602646548/1162903825699586178/Component_1_1.png?ex=653da195&is=652b2c95&hm=fda866ffcaf41b82fdd2b2c7c481047742af366c61b7cb233633497b27d023e9&=&width=1850&height=1045');
 	background-repeat: no-repeat;
@@ -89,7 +126,7 @@ body {
  	background-size: cover;
 }
 
-.button {opacity: 0.75;transition: 0.3s;}
+.button {opacity: 0.75; transition: 0.3s;}
 
 .button:hover {opacity: 1}
 
