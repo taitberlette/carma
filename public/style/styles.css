@@ -129,7 +129,7 @@ html, body, #container, .page {
  	background-size: cover;
 }
 
-#signup-page, #passenger-page, #destination-page {
+body {
 	background-image: url('https://media.discordapp.net/attachments/1161825372602646548/1162903825699586178/Component_1_1.png?ex=653da195&is=652b2c95&hm=fda866ffcaf41b82fdd2b2c7c481047742af366c61b7cb233633497b27d023e9&=&width=1850&height=1045');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
