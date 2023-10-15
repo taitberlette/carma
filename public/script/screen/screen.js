@@ -9,6 +9,7 @@ const setupScreen = async () => {
     addScreen("loading")
     addScreen("home")
     addScreen("login-page")
+    addScreen("signup-page")
 
     res()
   })
