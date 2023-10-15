@@ -12,27 +12,44 @@
 .button {
   border: none;
   color: white;
-  /* padding: 15px 32px; */
   text-align: center;
-  text-decoration: none;
-  /* display: inline-block; */
-  font-size: 16px;
-  /* margin: 4px 2px; */
+  display: inline-block;
+  font-size: 30px;
   cursor: pointer;
-  width: 5%;
+
+  display: block;
+  background-color: #ADD6A2;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
+/* Position the button at the top right corner */
+/* .button-container { */
+#login-button {
+  position: absolute;
+  top: 10px; /* distance from the top */
+  right: 10px; /* distance from the right */
+}
+
+#signup-button {
+  position: absolute;
+  top: 10px; /* distance from the top */
+  right: 200px; /* distance from the right */
+}
+
+/*centers home page while zooming in and out*/
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width:100%
 }
 
 
-#loading {
+/* #loading {
 
-}
+} */
 
-#home {
+/* #home {
   
-}
+} */
