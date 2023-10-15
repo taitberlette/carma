@@ -8,4 +8,4 @@
 
 💚 So, fasten your seatbelt and join us on this transformative journey. Carma is not just a ride; it's a movement towards a sustainable, connected, and greener world. 
 
-## welcome to Carma. 🐸🧩
+## welcome to carma. 🐸🧩
