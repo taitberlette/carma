@@ -166,7 +166,7 @@ const searchTrip = ({startPlaces, endPlaces}) => {
   })
 }
 
-const deleteTrip = () => {
+const deleteTrip = ({ id }) => {
   return new Promise(async (res, rej) => {
     try {
       const result = await tripsCollection.deleteOne({ id });

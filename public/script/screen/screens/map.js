@@ -1,6 +1,8 @@
 // login.js
 
+import { getUser, getState } from "../../state/state.js"
 import { switchScreen } from "../screen.js"
+import { refresh } from "./account.js"
 
 let mapboxgl = window.mapboxgl
 
@@ -9,6 +11,7 @@ let loaded = false
 
 let backButton = null
 let homeButton = null
+let endButton = null
 let mapSteps = null
 
 const setupMap = () => {
@@ -68,6 +71,9 @@ const setupMap = () => {
 
     homeButton = document.getElementById("map-home")
     homeButton.addEventListener('click', home)
+    
+    endButton = document.getElementById("map-end")
+    endButton.addEventListener('click', end)
 
     mapSteps = document.getElementById("map-steps")
 
@@ -80,6 +86,28 @@ const back = () => {
 }
 
 const home = () => {
+  switchScreen('account-page')
+}
+
+const end = async () => {
+  const state = getState()
+
+  const response = await fetch('/api/trip/end', {
+    method: 'POST', 
+    body: JSON.stringify({id: getUser(), tripId: state.id}),
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+
+  const json = await response.json()
+
+  if(response.status != 200) {
+    alert(json.msg)
+    return;
+  }
+
+  refresh()
   switchScreen('account-page')
 }
 
