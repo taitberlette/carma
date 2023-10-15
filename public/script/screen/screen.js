@@ -8,6 +8,7 @@ const setupScreen = async () => {
     // add all the screens
     addScreen("loading")
     addScreen("home")
+    addScreen("login-page")
 
     res()
   })

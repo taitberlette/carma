@@ -33,8 +33,35 @@
 
 #signup-button {
   position: absolute;
-  top: 10px; /* distance from the top */
-  right: 200px; /* distance from the right */
+  top: 10px; 
+  right: 200px; 
+}
+
+#username-bar{
+  position: absolute;
+  top: 42%;
+  right: 20.5%;  
+  /* display: flex; */
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+#password-bar{
+  position: absolute;
+  top: 62%;
+  right: 20.5%;  
+  /* display: flex; */
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+label, input {
+  display: block;
+  margin-bottom: 10px; /* spacing between label and input */
 }
 
 /*centers home page while zooming in and out*/
