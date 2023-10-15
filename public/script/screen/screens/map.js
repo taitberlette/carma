@@ -63,8 +63,6 @@ const setupMap = () => {
           'line-width': 5
         }
       });
-
-      renderMap(demo)
     })
 
     element = document.getElementById("map")
