@@ -3,14 +3,11 @@
 import "../../state/state.js"
 import { switchScreen } from "../screen.js"
 
-let element = null
 let loginButton = null
 let signupButton = null
 
 const setupHome = () => {
   return new Promise(async (res, rej) => {
-    element = document.getElementById("home")
-
     loginButton = document.getElementById("login-button")
     loginButton.addEventListener('click', login)
 

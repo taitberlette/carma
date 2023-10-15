@@ -3,20 +3,24 @@
 // import the screen manger
 import { switchScreen } from "../screen/screen.js"
 
-const states = {
-  LOADING: 0,
-  HOME: 1,
-  LOGIN: 2,
-  CREATE: 3
-}
-
 let user = null
+
+let state = {
+  driving: false,
+  start: '',
+  end: '',
+  options: {}
+}
 
 const setupState = () => {
   return new Promise(async (res, rej) => {
     user = localStorage.getItem("id") || null
     res()
   })
+}
+
+const getState = () => {
+  return state
 }
 
 const getUser = () => {
@@ -73,5 +77,9 @@ const createAccount = (username, password) => {
   })
 }
 
+const signout = () => {
+  localStorage.removeItem('id')
+}
 
-export { setupState, loginAccount, createAccount, getUser }
+
+export { setupState, loginAccount, createAccount, getUser, getState, signout }

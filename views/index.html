@@ -107,7 +107,7 @@
         <div id="map-container">
           <div id="map-header">
             <button class = "button" type="button" id="map-back" style="padding:5px">back</button > 
-            <h1 id="map-title">
+            <h1 class="header-title">
               carma
             </h1>
             
@@ -133,15 +133,15 @@
           </tr>
           <tr>
             <td>
-              <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%">
+              <!-- <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%">
               <form style="padding-left:5%"><label for="startloc" style="font-family:'Crushed';">Start Location:</label>
               <input id = "startloc" name = "startloc" type="text" startloc="startloc" value="Where are you starting from?" style="font-family:'Crushed';width:30%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
-              </div>
+              </div> -->
             </td>
             <td>
               <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%;">
                 <form style="padding-left:5%;"><label for="carbrand" style="font-family:'Crushed';">Car Brand:</label>
-                <input id = "carbrand" name = "carbrand" type="text" carbrand="carbrand" value="Type the car's brand" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
+                <input id = "carbrand" name = "carbrand" type="text" carbrand="carbrand" placeholder="Type the car's brand" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
               </div>
             </td>
           </tr>
@@ -156,7 +156,7 @@
             <td>
               <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%;">
                 <form style="padding-left:5%;"><label for="carmodel" style="font-family:'Crushed';">Car Model:</label>
-                <input id = "carmodel" name = "carmodel" type="text" carbrand="carmodel" value="Type the car's model" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
+                <input id = "carmodel" name = "carmodel" type="text" carbrand="carmodel" placeholder="Type the car's model" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
               </div>
             </td>
           </tr>
@@ -170,8 +170,8 @@
             </td>
             <td>
               <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%;">
-                <form style="padding-left:5%;"><label for="licenseplate" style="font-family:'Crushed';">Car Model:</label>
-                <input id = "licenseplate" name = "licenseplate" type="text" carbrand="licenseplate" value="Type your license plate" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
+                <form style="padding-left:5%;"><label for="licenseplate" style="font-family:'Crushed';">License Plate:</label>
+                <input id = "licenseplate" name = "licenseplate" type="text" carbrand="licenseplate" placeholder="Type your license plate" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
               </div>
             </td>
           </tr>
@@ -189,29 +189,85 @@
           </tr>
         </table>
 
-        <button class = "button" type="button" id="backhome" style="padding-right:20px;padding-left:20px;"> back</button > 
+        <button class = "button" type="button" id="driver-info-back" style="padding-right:20px;padding-left:20px;"> back</button > 
 
-        <button class = "button" type="button" id="backhome" style="padding:5px;margin-left:82%">
+        <button class = "button" type="button" id="driver-info-home" style="padding:5px;margin-left:82%">
           <img src="./image/homeicon.png" alt="homeicon" id="homeicon" style="padding-right: 10px; width: 13%; height: 13%" style = "float:right;">back home</button > 
         
-          <button class = "button" type="button" id="backhome" style="padding-right:20px;padding-left:20px;margin-left:87%;margin-top:40%"> next</button > 
+          <button class = "button" type="button" id="driver-info-next" style="padding-right:20px;padding-left:20px;margin-left:87%;margin-top:40%"> next</button > 
     </div>
       <!--driver info done-->
 
       <!-- destination page -->
       <div id="destination-page" class="page">
-        <img src="./image/destination-page.png" alt="destpage" id="destination-bk" class="center">
+        <div id="destination-container">
+          <div id="destination-header">
+            <button class = "button" type="button" id="destination-back" style="padding:5px">back</button > 
+            <h1 class="header-title">
+              carma
+            </h1>
+            
+            <button class = "button" type="button" id="destination-home" style="padding:5px">
+              <img src="./image/homeicon.png" alt="homeicon" id="homeicon" style="padding-right: 10px; width: 25%; height: 25%">home</button > 
+          </div>
+            <input type="text" id="destination-start" name="email" placeholder="Departure">
+            <input type="text" id="destination-end" name="email" placeholder="Arrival">
+            <button class = "button" type="button" id="destination-next">Next</button>
+      </div>
+      </div>
+      
+      <div id="account-page" class="page">
+        <div id="account-container">
+          <div id="account-header">
+            <button class = "button" type="button" id="account-logout" style="padding:5px">logout</button > 
+            <h1 class="header-title">
+              carma
+            </h1>
+            
+            <button class = "button" type="button" id="account-refresh" style="padding:5px">
+             refresh</button > 
+          </div>
+          <div id="driver"></div>
+          <div id="rider"></div>
+          <button class = "button" type="button" id="new-trip">New Trip</button>
+          <div id="stats"></div>
+        </div>
       </div>
 
       <!-- passenger page -->
       <div id="passenger-page" class="page">
+        <div id="passenger-header">
+          <button class = "button" type="button" id="passenger-back" style="padding:5px">back</button > 
+          <h1 class="header-title">
+            Thank you for choosing carma!<br>
+            I am a...
+          </h1>
+          
+          <button class = "button" type="button" id="passenger-home" style="padding:5px">
+            <img src="./image/homeicon.png" alt="homeicon" id="homeicon" style="padding-right: 10px; width: 25%; height: 25%">home</button > 
+        </div>
+        
+        <button class = "button type-button" type="button" id="driver-button">Driver</button>
+        
+        <button class = "button type-button" type="button" id="passenger-button">Passenger</button>
         <img src="./image/sexygraphicclear.png" alt="passpage" id="passenger-bk" class="center">
       </div>
 
       <!-- rides page -->
       <div id="rides-page" class="page">
-        <img src="./image/rides-page.png" alt="ridespage" id="rides-bk" class="center">
-        
+        <!-- <img src="./image/rides-page.png" alt="ridespage" id="rides-bk" class="center"> -->
+        <div id="rides-container">
+          <div id="rides-header">
+            <button class = "button" type="button" id="rides-back" style="padding:5px">back</button > 
+            <h1 class="header-title">
+              carma
+            </h1>
+            
+            <button class = "button" type="button" id="rides-home" style="padding:5px">
+              <img src="./image/homeicon.png" alt="homeicon" id="homeicon" style="padding-right: 10px; width: 25%; height: 25%">home</button > 
+          </div>
+          <div id="rides-options"></div>
+        </div>
       </div>
     </div>
   </body>
