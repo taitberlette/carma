@@ -45,7 +45,7 @@ html, body, #container, .page {
   right: 10px; /* distance from the right */
 }
 
-#backhome {
+#backhome-login, #backhome-signup {
   position: absolute;
   color: black;
   top: 3%; 
@@ -62,13 +62,52 @@ html, body, #container, .page {
   font-size:30pt;
 }
 
-#password-bar{
+#password-bar1{
   position: absolute;
   top: 62%;
   right: 20.5%;  
 
   height:8%;
   width: 58%;
+  font-size:30pt;
+}
+
+#email-bar{
+  position: absolute;
+  top: 35%;
+  right: 20.5%;  
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+#password-bar2{
+  position: absolute;
+  top: 55%;
+  right: 20.5%;  
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+#password-confirm{
+  position: absolute;
+  top: 73%;
+  right: 20.5%;  
+
+  height:8%;
+  width: 58%;
+  font-size:30pt;
+}
+
+#create-button, #login-account{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 200px;
+  background-color: #77987C;
   font-size:30pt;
 }
 
@@ -79,7 +118,6 @@ html, body, #container, .page {
   margin-right: auto;
   width:100%
 }
-
 
 #driverinfo-page {
 	background-repeat: no-repeat;
@@ -94,7 +132,7 @@ html, body, #container, .page {
  	background-size: cover;
 }
 
-.button {opacity: 0.75;transition: 0.3s;}
+.button {opacity: 0.75; transition: 0.3s;}
 
 .button:hover {opacity: 1}
 
