@@ -87,11 +87,11 @@ const refresh = async () => {
     div.classList.add("button", "list-button")
 
     div.addEventListener('click', () => {
-      startDrive(drivingJson.trips[i].id)
+      leave(joinedJson.trips[i].id, joinedJson.trips[i].text)
     })
 
     const title = document.createElement("h3")
-    title.innerText = drivingJson.trips[i].text
+    title.innerText = joinedJson.trips[i].text
     div.appendChild(title)
 
     joinedChildren.push(div)
@@ -121,13 +121,36 @@ const startDrive = async (id) => {
     return;
   }
 
+  switchScreen('map')
   renderMap(json.route)
   
-  switchScreen('map')
 }
 
-const leave = () => {
+const leave = async (id, name) => {
+  let confirmed = confirm(`Are you sure you want to leave the "${name}" trip?`)
+  if(!confirmed) {
+    return
+  }
 
+  switchScreen('loading')
+
+  const response = await fetch('/api/trip/leave', {
+    method: 'POST', 
+    body: JSON.stringify({id: getUser(), tripId: id}),
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+
+  const json = await response.json()
+
+  if(response.status != 200) {
+    alert(json.msg)
+  }
+
+  refresh()
+
+  switchScreen('account-page')
 }
 
 const create = () => {

@@ -15,7 +15,7 @@ import { setupLogin } from "./screen/screens/login.js"
 import { setupMap } from "./screen/screens/map.js"
 import { setupDestination } from "./screen/screens/destination.js"
 import { setupInfo } from "./screen/screens/info.js"
-import { setupAccount } from "./screen/screens/account.js";
+import { setupAccount, refresh } from "./screen/screens/account.js";
 import { setupPassengers } from "./screen/screens/passenger.js";
 import { setupRides } from "./screen/screens/rides.js"
 
@@ -47,6 +47,8 @@ const start = async () => {
     await setupSocket()
 
     switchScreen(getUser() ? "account-page" : "home")
+    
+    refresh()
 
     // switchScreen("driverinfo-page")
 

@@ -85,6 +85,8 @@ const home = () => {
 
 const renderMap = async (data) => {
   console.log(data)
+  
+  map.resize()
 
   const geojson = {
     "type": "FeatureCollection",

@@ -2,6 +2,7 @@
 
 import { createAccount, loginAccount } from "../../state/state.js"
 import { switchScreen } from "../screen.js"
+import { refresh } from "./account.js"
 
 let backButton = null
 let loginButton = null
@@ -61,6 +62,7 @@ const create = async () => {
   }
 
   switchScreen("account-page")
+  refresh()
 }
 
 export { setupSignup }
