@@ -20,7 +20,7 @@ const start = async () => {
     // connect to the websocket server
     await setupSocket()
 
-    switchScreen("home")
+    switchScreen("login-page")
 
     console.log('application setup! 😁')
   } catch (e) {
