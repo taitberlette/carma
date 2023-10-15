@@ -25,6 +25,18 @@
     </script>
     <script src="./script/app.js" type="module" defer></script>
 
+    <script>
+      var peopleAmt = {
+        "1":{},"2":{},"3":{},"4":{},"5":{},"6":{},"7":{},"8":{}
+      }
+      window.onload = function() {
+         var subjectSel = document.getElementById("peopleAmtSelc");
+          for (var x in peopleAmt) {
+            subjectSel.options[subjectSel.options.length] = new Option(x, x);
+        }
+      }
+    </script>
+
   </head>
   <body>
     <noscript>JavaScript is required to run carma</noscript>
@@ -80,6 +92,99 @@
       </div>
 
       <!--end signup page-->
+
+      <!-- nvm i couldnt figure it out :( but attempt at a my trips page
+      <div id = "driverinfo-page" class = "page">
+
+        <div style="max-width:17%;margin-left:auto;margin-right:auto;background: rgba(212,239,190, 0.5);border-radius:15px;margin-top:17px;padding-left:15px;padding-right:15px;">
+          <p style="font-family:'Crushed';font-size:65px;text-align:center;">MY TRIPS</p>
+        </div>
+
+        <div>
+          <div class = "asdriver" style="max-width:17%;margin-left:auto;margin-right:auto;background: rgba(212,239,190, 0.5);border-radius:15px;padding-left:15px;padding-right:15px;">
+            <p style="font-family:'Crushed';font-size:65px;text-align:center;">MY TRIPS</p>
+          </div>
+
+          <div class = "asrider" style="max-width:17%;margin-left:auto;margin-right:auto;background: rgba(212,239,190, 0.5);border-radius:15px;padding-left:15px;padding-right:15px;">
+            <p style="font-family:'Crushed';font-size:65px;text-align:center;">MY TRIPS</p>
+          </div>
+      </div>
+      </div>
+      end my trips page-->
+
+      <!--driver info page-->
+      <div id = "driverinfo-page" class = "page">
+        <table style="margin-top:7%;">
+          <tr>
+            <th style="font-size:30px;">Driver information <img src="https://media.discordapp.net/attachments/1161825372602646548/1162952007485763704/Untitled_Drawing_4.png?ex=653dce75&is=652b5975&hm=565a711f5e2e266b46e343890d2126d0049f0df1b3b23f3d3780748fbb57caf9&=&width=865&height=892" style="width:10%"></th>
+            <th style="font-size:30px;">Vehicle information <img src="https://media.discordapp.net/attachments/1161825372602646548/1162952007729037353/Untitled_Drawing_3.png?ex=653dce75&is=652b5975&hm=ed27cf3999632cfc8816c0d7d3c8a0d9a34afc41da8fa48a5bf1f1cd90f0789f&=&width=1217&height=712" style="width:10%"></th>
+          </tr>
+          <tr>
+            <td>
+              <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%">
+              <form style="padding-left:5%"><label for="startloc" style="font-family:'Crushed';">Start Location:</label>
+              <input id = "startloc" name = "startloc" type="text" startloc="startloc" value="Where are you starting from?" style="font-family:'Crushed';width:30%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
+              </div>
+            </td>
+            <td>
+              <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%;">
+                <form style="padding-left:5%;"><label for="carbrand" style="font-family:'Crushed';">Car Brand:</label>
+                <input id = "carbrand" name = "carbrand" type="text" carbrand="carbrand" value="Type the car's brand" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id = "insuranceUp" style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%">
+              <form style="padding-left:5%"><label for="insurance" style="font-family:'Crushed';">Proof of Insurance:</label>
+                <input type="file" id="img" name="img" accept="image/*" style="font-family:'Crushed';">
+              </form>
+              </div>
+            </td>
+            <td>
+              <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%;">
+                <form style="padding-left:5%;"><label for="carmodel" style="font-family:'Crushed';">Car Model:</label>
+                <input id = "carmodel" name = "carmodel" type="text" carbrand="carmodel" value="Type the car's model" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id = "licenseUp" style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%" >
+              <form style="padding-left:5%"><label for="license" style="font-family:'Crushed';">Driver's License:</label>
+                <input type="file" id="img" name="img" accept="image/*" style="font-family:'Crushed';">
+              </form>
+              </div>
+            </td>
+            <td>
+              <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%;">
+                <form style="padding-left:5%;"><label for="licenseplate" style="font-family:'Crushed';">Car Model:</label>
+                <input id = "licenseplate" name = "licenseplate" type="text" carbrand="licenseplate" value="Type your license plate" style="font-family:'Crushed';width:25%;height:30px;padding-left:1%;border:none;border-radius:10px;background-color:#f3faed;"></form>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div style="background-color:#D4EFBE;border-radius:15px;padding-top:2%;padding-bottom:2%;">
+              <form style="padding-left:5%;"><label for="peopleAmt" style="font-family:'Crushed';">People on board:</label>
+                <select name="subject" id="peopleAmtSelc">
+                  <option value="" selected="selected">How many people are in the car?</option>
+                </select>
+              </form>
+            </div>
+          </td>
+          </tr>
+        </table>
+
+        <button class = "button" type="button" id="backhome" style="padding-right:20px;padding-left:20px;"> back</button > 
+
+        <button class = "button" type="button" id="backhome" style="padding:5px;margin-left:82%">
+          <img src="./image/homeicon.png" alt="homeicon" id="homeicon" style="padding-right: 10px; width: 13%; height: 13%" style = "float:right;">back home</button > 
+        
+          <button class = "button" type="button" id="backhome" style="padding-right:20px;padding-left:20px;margin-left:87%;margin-top:40%"> next</button > 
+    </div>
+      <!--driver info done-->
     </div>
   </body>
 </html>
