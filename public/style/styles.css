@@ -6,6 +6,8 @@
 html, body, #container, .page {
   padding: 0px;
   margin: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 * {
@@ -14,7 +16,9 @@ html, body, #container, .page {
 }
 
 .page { 
-  display: none
+  display: none;
+  height: 100%;
+  width: 100%;
 }
 
 .button {
@@ -130,6 +134,72 @@ body {
 
 .button:hover {opacity: 1}
 
+#map-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 20% 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+  width: 100%;
+}
+  
+#map-header { 
+  grid-area: 1 / 1 / 2 / 4;
+  background-color: #D4EFBE;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#map-directions { 
+  grid-area: 2 / 1 / 3 / 2; 
+  background-color: #FFFFFF;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  padding-left: 30px;
+  overflow-y: scroll;
+}
+
+#map-bounds { 
+  grid-area: 2 / 2 / 3 / 4; 
+  background-color: #e3f5d5;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#map-directions h1 {
+  font-family: Crushed;
+  font-size: 48px;
+}
+
+#map-title {
+  font-family: Crushed;
+  font-size: 64px;
+  text-align: center;
+}
+
+#map-back {
+
+  position:absolute;
+  margin: auto;
+  left: 20px;
+  top: 40px;
+  color: black;
+}
+
+#map-home {
+  position:absolute;
+  margin: auto;
+  right: 20px;
+  top: 40px;
+  color: black;
+}
+
+#map-steps {
+}
 
 /* #loading {
 

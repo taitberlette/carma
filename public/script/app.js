@@ -12,6 +12,8 @@ import { setupSocket } from "./websocket/websocket.js";
 import { setupHome } from "./screen/screens/home.js"
 import { setupSignup } from "./screen/screens/signup.js";
 import { setupLogin } from "./screen/screens/login.js"
+import { setupMap } from "./screen/screens/map.js"
+
 
 // start the application
 const start = async () => {
@@ -30,10 +32,13 @@ const start = async () => {
     await setupSignup()
     await setupLogin()
 
+    await setupMap()
+
     // connect to the websocket server
     await setupSocket()
 
-    switchScreen(getUser() ? "dashboard" : "home")
+    switchScreen("map")
+    // switchScreen(getUser() ? "dashboard" : "home")
 
     console.log('application setup! 😁')
   } catch (e) {

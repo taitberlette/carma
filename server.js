@@ -16,6 +16,7 @@ import http from "http"
 import { router } from "./routes/route.js"
 import { tripRouter } from './routes/trip.js';
 import { userRouter } from "./routes/user.js"
+import { tokenRouter } from "./routes/token.js"
 
 // import the websocket server
 import { setupSocket } from "./websocket/websocket.js"
@@ -45,6 +46,7 @@ app.use(express.static(path.resolve('public')));
 app.use('/', router)
 app.use('/api/user/', userRouter)
 app.use('/api/trip/', tripRouter)
+app.use('/api/token/', tokenRouter)
 
 // listen for web requests
 const listen = async () => {
