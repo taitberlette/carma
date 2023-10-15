@@ -11,8 +11,9 @@ const setupScreen = async () => {
     addScreen("login-page")
     addScreen("signup-page")
     addScreen("map")
-    addScreen("driverinfo-page")
-    // addScreen("account-page")
+    addScreen("destination-page")
+    addScreen("passenger-page")
+    addScreen("rides-page")
 
     res()
   })
