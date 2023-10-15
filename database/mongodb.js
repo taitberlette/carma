@@ -63,8 +63,6 @@ const createUser = (document) => {
 
 const findUser = ({username, id}) => {
   return new Promise(async (res, rej) => {
-
-    console.log(username ? { username } : { id })
     try {
       const result = await userCollection.find(username ? { username } : { id }).toArray();
 
@@ -85,6 +83,98 @@ const updateUser = ({id}, document) => {
   return new Promise(async (res, rej) => {
     try {
       const result = await userCollection.replaceOne({id}, document, {upsert:true});
+      
+      if(result.length == 0) {
+        res(null)
+        return;
+      }
+
+      // return the result
+      res(result[0])
+    } catch (e) {
+      rej(e)
+    }
+  })
+}
+
+const createTrip = (document) => {
+  return new Promise(async (res, rej) => {
+    try {
+      const result = await tripsCollection.insertOne(document);
+      if (!result.acknowledged) {
+        rej(new Error('failed to insert'));
+        return
+      }
+      res()
+    } catch (e) {
+      rej(e)
+    }
+  })
+}
+
+const findTrip = ({ id }) => {
+  return new Promise(async (res, rej) => {
+    try {
+      const result = await tripsCollection.find({ id }).toArray();
+
+      if(result.length == 0) {
+        res(null)
+        return;
+      }
+
+      // return the result
+      res(result[0])
+    } catch (e) {
+      rej(e)
+    }
+  })
+}
+
+const updateTrip = ({id}, document) => {
+  return new Promise(async (res, rej) => {
+    try {
+      const result = await tripsCollection.replaceOne({id}, document, {upsert:true});
+      
+      if(result.length == 0) {
+        res(null)
+        return;
+      }
+
+      // return the result
+      res(result[0])
+    } catch (e) {
+      rej(e)
+    }
+  })
+}
+
+const searchTrip = ({startPlaces, endPlaces}) => {
+  return new Promise(async (res, rej) => {
+    try {
+      const result = await tripsCollection.find({startPlaces: {$in:startPlaces}, endPlaces: {$in:endPlaces}}).toArray();
+      
+      if(result.length == 0) {
+        rej(new Error("no trips found"))
+        return;
+      }
+
+      // return the result
+      res(result)
+    } catch (e) {
+      rej(e)
+    }
+  })
+}
+
+const deleteTrip = () => {
+  return new Promise(async (res, rej) => {
+    try {
+      const result = await tripsCollection.deleteOne({ id });
+      if (!result.acknowledged) {
+        rej(new Error('failed to delete'));
+        return
+      }
+      res()
     } catch (e) {
       rej(e)
     }
@@ -92,4 +182,4 @@ const updateUser = ({id}, document) => {
 }
 
 // export the database
-export { setupDB, createUser, findUser, updateUser }
+export { setupDB, createUser, findUser, updateUser, createTrip, findTrip, updateTrip, searchTrip, deleteTrip }

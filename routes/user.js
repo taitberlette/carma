@@ -14,7 +14,7 @@ const userRouter = express.Router()
 
 // create a new user
 userRouter.post('/create', async (request, response) => {
-  const { username, password } = request.query
+  const { username, password } = request.body
   
   try {
     let user = await findUser({ username })
@@ -28,7 +28,26 @@ userRouter.post('/create', async (request, response) => {
   }
 
   const user = {
-    username, password, id: uuidv4() 
+    username,
+    password, 
+    id: uuidv4(), 
+    trips: {
+      driving: [],
+      joined: [],
+      history: []
+    }, 
+    statistics: {
+      distance: 0,
+      footprint: 0,
+      trips: 0
+    },
+    vehicle: {
+      active: false,
+      make: "",
+      model: "",
+      mpg: 0,
+      offset: 0
+    }
   }
 
   try {
@@ -43,7 +62,7 @@ userRouter.post('/create', async (request, response) => {
 
 // login
 userRouter.post('/login', async (request, response) => {
-  const { username, password } = request.query
+  const { username, password } = request.body
   
   let user = null
   
@@ -65,6 +84,32 @@ userRouter.post('/login', async (request, response) => {
   }
 
   response.status(200).json({msg: `success 🥳`, id: user.id})
+})
+
+userRouter.get('/trips/:type', async (request, response) => {
+  const { id } = request.query
+  const { type } = request.params
+
+  let user = null
+  
+  try {
+    user = await findUser({ id })
+  } catch (e) {
+    response.status(404).json({msg: `failed to find account`})
+    return;
+  }
+
+  if(!user) {
+    response.status(404).json({msg: `user not found`})
+    return;
+  }
+
+  if(!user.trips[type]) {
+    response.status(404).json({msg: `failed to find trip type`})
+    return;
+  }
+
+  response.status(200).json({msg: `success 🥳`, trips: user.trips[type]})
 })
 
 // export the router
