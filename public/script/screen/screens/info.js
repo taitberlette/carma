@@ -1,7 +1,8 @@
 // info.js
 
-import { getState} from "../../state/state.js"
+import { getState, getUser} from "../../state/state.js"
 import { switchScreen } from "../screen.js"
+import { refresh } from "./account.js"
 
 let element = null
 let backButton = null
@@ -36,11 +37,11 @@ const back = () => {
   switchScreen('passenger-page')
 }
 
-const home = () => {
+const home = () => {nc
   switchScreen('account-page')
 }
 
-const next = () => {
+const next = async () => {
   const state = getState()
 
   if(!makeInput.value.trim() || !modelInput.value.trim() || !plateInput.value.trim() || !numberInput.value.trim()) {
@@ -52,8 +53,33 @@ const next = () => {
     make: makeInput.value,
     model: modelInput.value,
     plate: plateInput.value,
-    people: numberInput.value
+    seats: numberInput.value
   }
+
+  switchScreen('loading')
+
+ const response = await fetch('/api/trip/create', {
+    method: 'POST', 
+    body: JSON.stringify({
+      id: getUser(),
+      journey: {
+        start: state.start,
+        end: state.end,
+        ...state.options
+      }
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+
+  const json = await response.json()
+
+  if(response.status != 200) {
+    alert(json.msg)
+  }
+
+  refresh()
   
   switchScreen('account-page')
 }

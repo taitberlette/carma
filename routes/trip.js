@@ -59,7 +59,8 @@ tripRouter.post('/create', async (request, response) => {
       seats: journey.seats, 
     }, 
     riders: [],
-    driver: id
+    driver: id,
+    summary: `${start.text} -> ${end.text}`
   }
 
   for(let i = 0; i < start.context.length; i++) {
@@ -80,7 +81,8 @@ tripRouter.post('/create', async (request, response) => {
   user.trips.driving.push({
     id: trip.id,
     footprint: 0,
-    distance: 0
+    distance: 0,
+    text: trip.summary
   })
 
   try {
@@ -166,6 +168,7 @@ tripRouter.post('/join', async (request, response) => {
     id: tripId,
     footprint: 0,
     distance: 0,
+    text: trip.summary
   })
   
   try {

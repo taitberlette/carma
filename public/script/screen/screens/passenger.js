@@ -2,6 +2,7 @@
 
 import { getState} from "../../state/state.js"
 import { switchScreen } from "../screen.js"
+import { refreshRides } from "./rides.js"
 
 let backButton = null
 let homeButton = null
@@ -47,6 +48,8 @@ const passenger = () => {
   const state = getState()
 
   state.driver = false
+
+  refreshRides()
   
   switchScreen('rides-page')
 }

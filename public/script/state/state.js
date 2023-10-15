@@ -9,7 +9,8 @@ let state = {
   driving: false,
   start: '',
   end: '',
-  options: {}
+  options: {},
+  trip: {}
 }
 
 const setupState = () => {

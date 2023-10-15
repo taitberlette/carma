@@ -60,7 +60,7 @@ const create = async () => {
     return
   }
 
-  switchScreen("map")
+  switchScreen("account-page")
 }
 
 export { setupSignup }
